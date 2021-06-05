@@ -6,7 +6,6 @@ function Publish(props){
     const [title, setTitle]=useState("");
     return(
         <React.Fragment>
-            <Nav />
             <h1>Update {props.nam} by {localStorage.getItem("authuser")}</h1>
             <form method="POST"action={`https://backend-notepad.herokuapp.com/blogs/edit/${localStorage.getItem("authuser")}/${props.nam}`}onSubmit={e=>{
                 const user=localStorage.getItem("authuser");
