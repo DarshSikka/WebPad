@@ -1,0 +1,13 @@
+.form{
+    height:40px;
+    margin-top:30px;
+    font-size:30px;
+}
+form{
+    margin-top:10%;
+    text-align:center;
+}
+input[type="submit"]{
+    margin-top:70px;
+    height:60px;
+}
