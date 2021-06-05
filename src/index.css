@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:yellow;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -16,14 +17,15 @@ input[type="checkbox"]{
  margin-top:30px;
 }
 .DocumentGetter{
-  font-size:40px;
+  font-size:30px;
   width:400px;
-  height:80px;
+  height:50px;
   margin-top:30px;
   background-color:aquamarine;
 }
 .new{
-  background-color:yellow;
+  background:aqua;
+  border-radius:5px;
 }
 #search_emoji{
   font-size:30px;

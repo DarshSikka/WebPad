@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import './Listings.css'
+import './Styles/Listings.css'
+import Nav from './Nav'
 const Listings=(props)=>{
    const [data, setData]=useState([])
    const getListings=async()=>{
@@ -13,7 +14,7 @@ const Listings=(props)=>{
     })})
    return(
        <div class="container">
-         {data.map(ele=><React.Fragment><Link to="/blog"><button className="Listing" onClick={props.confirmClick(ele)}>{ele.blog_title} by {ele.posted_by}</button></Link><br /></React.Fragment>)}
+         {data.map(ele=><React.Fragment><Link to="/blog"><button className="Listing" onClick={()=>props.confirmClick(ele)}>{ele.blog_title} by {ele.posted_by}</button></Link><br /></React.Fragment>)}
        </div>
    )
 }

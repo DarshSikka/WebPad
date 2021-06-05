@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
 .App {
   text-align: center;
 }
@@ -7,4 +8,9 @@
 }
 .extra{
   margin-top:20px;
+}
+.he{
+  font-size:60px;
+  font-family:'Rametto One', cursive;
+  margin-top:10px;
 }

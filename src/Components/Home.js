@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import pen from "./Assets/pen.png";
+import Nav from './Nav';
 const Home = (props) => {
   const getAllDocs = () => {
     const data = Object.keys(localStorage);
@@ -15,9 +16,13 @@ const Home = (props) => {
   }
   const [Documents, setDocuments] = useState(getAllDocs);
   const [filtered, setFiltered]=useState(getAllDocs);
+  const download=(html)=>{
+    const blob=new Blob([html], {type:'text/html'});
+    const download=URL.createObjectURL(blob);
+    return download;
+  }
   return (
     <React.Fragment>
-    <nav><Link to="/blogs">Our Community Blogs</Link></nav>
       <center>
         <h1>Load A Document to edit in WebPad</h1>
         <label for="search" id="search_emoji">🔎 :</label><input id="search"type='text' placeholder="Search"style={{height:"30px", fontSize:"23px"}}onChange={searchFilter} />
@@ -26,10 +31,11 @@ const Home = (props) => {
             <button onClick={()=>props.clickProp(null)}className="DocumentGetter new">New Document</button>
           </Link>
           {filtered.map((ele) => (
+            ele==="authuser"?"":
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Link to={"/editor"}>
                 <button
-                  style={{ height: "70px" }}
+                  style={{ height: "50px" }}
                   className="DocumentGetter"
                   onClick={()=>props.clickProp(ele)}
                 >
@@ -41,10 +47,12 @@ const Home = (props) => {
                   const p=prompt("New Name");
                   localStorage.setItem(p, toSet);
                   localStorage.removeItem(ele);
-                  setDocuments(getAllDocs);
-              }}style={{ height: "70px", marginTop: "30px" }}>
-                <img style={{ height: "65px" }} src={pen} />
+                  setDocuments(getAllDocs());
+                  window.location="/"
+              }}style={{ height: "50px", marginTop: "30px" }}>
+                <img style={{ height: "45px" }} src={pen} />
               </button>
+              <a href={download(localStorage.getItem(ele))} download={`${ele}.webpaddoc`}><button style={{height:"50px", fontSize:20, marginTop:"30px"}}>Download</button></a>
             </div>
           ))}
         </div>

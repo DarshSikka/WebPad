@@ -46,8 +46,7 @@ function Main(props) {
      }
   }
   return (
-    <div className="App">
-      <h1>Welcome to WebPad</h1>
+    <div className="App" style={{marginBottom:"40px"}}>
       <label>Advanced style formatting will not be retrieved in the editor. 
           Once you are happy with the blog, you can style it
           for publishing.
