@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import pen from "./Assets/pen.png";
 import Nav from './Nav';
+import bin from './Assets/bin.png'
 const Home = (props) => {
   const getAllDocs = () => {
     const data = Object.keys(localStorage);
@@ -53,6 +54,7 @@ const Home = (props) => {
                 <img style={{ height: "45px" }} src={pen} />
               </button>
               <a href={download(localStorage.getItem(ele))} download={`${ele}.webpaddoc`}><button style={{height:"50px", fontSize:20, marginTop:"30px"}}>Download</button></a>
+              <button style={{backgroundColor:"transparent", border:"0px", height:"50px", marginTop:"30px"}}onClick={()=>{localStorage.removeItem(ele);window.location="/"}}><img height="50"src={bin} /></button>
             </div>
           ))}
         </div>
